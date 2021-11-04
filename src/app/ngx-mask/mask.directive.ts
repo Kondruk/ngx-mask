@@ -143,9 +143,11 @@ export class MaskDirective implements ControlValueAccessor {
   }
 
   @HostListener('blur')
-  public onBlur(): void {
+  public onBlur(e: KeyboardEvent): void {
     this._maskService.clearIfNotMatchFn();
     this.onTouch();
+    console.log(e);
+    
   }
 
   @HostListener('click', ['$event'])
